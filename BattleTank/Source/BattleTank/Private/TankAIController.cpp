@@ -5,15 +5,6 @@
 
 void ATankAIController::BeginPlay()
 {
-	Super::BeginPlay();
-
-	auto ControlledTank = GetControlledTank();
-	if (!ControlledTank) {
-		UE_LOG(LogTemp, Warning, TEXT("AIController not possessing a Tank"));
-	}
-	else {
-		UE_LOG(LogTemp, Warning, TEXT("AIController possessing: %s"), *(ControlledTank->GetName()));
-	}
 
 	auto PlayerTank = GetPlayerTank();
 	if (!PlayerTank) {
