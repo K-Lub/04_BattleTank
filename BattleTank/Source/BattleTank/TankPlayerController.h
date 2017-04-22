@@ -15,6 +15,10 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 	GENERATED_BODY()
 	
 private:
+	UPROPERTY(EditAnywhere)
+	float CrosshairXLocation = .5;
+	UPROPERTY(EditAnywhere)
+	float CrosshairYLocation = .3333;
 
 	ATank* GetControlledTank() const;
 
@@ -27,5 +31,6 @@ private:
 
 	//return an OUT parameter, true if hit landscape
 	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
+	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 	
 };
