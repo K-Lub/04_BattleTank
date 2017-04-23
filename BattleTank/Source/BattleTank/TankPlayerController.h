@@ -20,6 +20,8 @@ private:
 	UPROPERTY(EditAnywhere)
 	float CrosshairYLocation = .3333;
 
+	float LineTraceRange = 1000000.f;
+
 	ATank* GetControlledTank() const;
 
 	virtual void Tick(float DeltaTime) override;
@@ -32,5 +34,6 @@ private:
 	//return an OUT parameter, true if hit landscape
 	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
 	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
 	
 };
