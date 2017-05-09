@@ -18,8 +18,9 @@ private:
 	UPROPERTY(EditAnywhere)
 	float CrosshairXLocation = .5;
 	UPROPERTY(EditAnywhere)
-	float CrosshairYLocation = .3333;
+	float CrosshairYLocation = .30;
 
+	UPROPERTY(EditAnywhere)
 	float LineTraceRange = 1000000.f;
 
 	ATank* GetControlledTank() const;

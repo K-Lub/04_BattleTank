@@ -44,13 +44,12 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		StartLocation,
 		HitLocation,
 		LaunchSpeed,
-		false, 0, 0,
+		false,0,0,
 		ESuggestProjVelocityTraceOption::DoNotTrace
 	);
 	if(bHaveAimsolution){
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrelTowards(AimDirection);
-		auto Time = GetWorld()->GetTimeSeconds();
 	}
 }
 

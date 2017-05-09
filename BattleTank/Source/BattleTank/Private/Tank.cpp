@@ -30,15 +30,16 @@ void ATank::SetTurretReference(UTankTurret* TurretToSet)
 }
 
 void ATank::Fire() {
-	UE_LOG(LogTemp, Warning, TEXT("Fire"));
 
 	if (!Barrel) return;
 	//spawn a projectile at the socket location of the barrel
-	GetWorld()->SpawnActor<AProjectile>(
+	auto Projectile = GetWorld()->SpawnActor<AProjectile>(
 		ProjectileBlueprint,
 		Barrel->GetSocketLocation(FName("Projectile")),
 		Barrel->GetSocketRotation(FName("Projectile"))
-		);
+	);
+
+	Projectile->LaunchProjectile(LaunchSpeed);
 }
 
 // Called when the game starts or when spawned
@@ -59,7 +60,11 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void ATank::AimAt(FVector HitLocation)
 {
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
+
+	UE_LOG(LogTemp, Warning, TEXT("%s"), *HitLocation.ToString())
 }
+
+
 
 
 
